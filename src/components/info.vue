@@ -3,7 +3,7 @@
     <div>
       <div class='item'>总数：<strong>{{ goodsTotalCount }}</strong></div>
       <div class='item'>总价：<strong>{{ goodsTotalPrice }}</strong></div>
-      <div class="item pull-right btn btn-danger">清空购物车</div>
+      <div class="item pull-right btn btn-danger" @click="clearShopCartHandle">清空购物车</div>
     </div>
   </div>
 </template>
@@ -16,6 +16,12 @@ export default {
     },
     goodsTotalPrice () {
       return this.$store.getters.totalPrice
+    }
+  },
+  methods: {
+    // 清空购物车
+    clearShopCartHandle () {
+      this.$store.commit('clearShopCart')
     }
   }
 }

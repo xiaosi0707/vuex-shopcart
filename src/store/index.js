@@ -52,11 +52,15 @@ const store = new Vuex.Store({
     reShopCart (state, product) {
       state.cartData.map((item, index) => {
         if (product.id === item.id) {
-          console.log(index)
           state.cartData.splice(index, 1)
           localStorage.setItem('shopCart', JSON.stringify(state.cartData))// 更新本地存储的数据
         }
       })
+    },
+    // 清空购物车数据
+    clearShopCart (state) {
+      state.cartData = []
+      localStorage.setItem('shopCart', JSON.stringify(state.cartData))// 更新本地存储的数据
     }
   }
 })
