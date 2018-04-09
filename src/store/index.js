@@ -2,10 +2,10 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 
 Vue.use(Vuex)
-
+let data = JSON.parse(localStorage.getItem('shopCart')) || [] // 初始化数据
 const store = new Vuex.Store({
   state: {
-    cartData: [] // 购物车数据状态
+    cartData: data // 购物车数据状态
   },
   getters: {
     totalCount (state) { // 商品总数
@@ -37,12 +37,14 @@ const store = new Vuex.Store({
         Vue.set(product, 'count', 1) // product：传递过来“鱼香肉丝”
         state.cartData.push(product)
       }
+      localStorage.setItem('shopCart', JSON.stringify(state.cartData))
     },
     // 减减
     delShopCart (state, product) {
       state.cartData.map((item) => {
-        if (product.id === item.id && item.count > 1) {
-          item.count--
+        if (product.id === item.id && product.count > 1) {
+          product.count--
+          localStorage.setItem('shopCart', JSON.stringify(state.cartData))
         }
       })
     },
