@@ -8,7 +8,7 @@
         <th>名称</th>
         <th>价格</th>
         <th>数量</th>
-        <th>Actions</th>
+        <th>操作</th>
       </tr>
       </thead>
       <tbody>
@@ -50,11 +50,11 @@ export default {
         price: 2
       }]
     }
-  },
-  computed: {
-    goodsNum () {
-      return this.$store.state.goodsCount
-    }
+  // },
+  // computed: {
+  //   goodsNum () {
+  //     return this.$store.state.goodsCount
+  //   }
   },
   methods: {
     // 加入购物车

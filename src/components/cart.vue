@@ -9,7 +9,7 @@
         <th>价格</th>
         <th>数量</th>
         <th>总价</th>
-        <th>Actions</th>
+        <th>操作</th>
       </tr>
       </thead>
       <tbody>
@@ -35,9 +35,6 @@ export default {
   computed: {
     cartDataList () {
       return this.$store.state.cartData
-    },
-    goodsNum () {
-      return this.$store.state.goodsCount
     }
   }
 }

@@ -5,8 +5,7 @@ Vue.use(Vuex)
 
 const store = new Vuex.Store({
   state: {
-    cartData: [],
-    goodsCount: 1
+    cartData: [] // 购物车数据状态
   },
   mutations: {
     // 加入购物车
@@ -19,7 +18,7 @@ const store = new Vuex.Store({
         }
       })
       if (flag) {
-        Vue.set(product, 'count', 1)
+        Vue.set(product, 'count', 1) // product：传递过来“鱼香肉丝”
         state.cartData.push(product)
       }
     }
