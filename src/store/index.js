@@ -37,14 +37,14 @@ const store = new Vuex.Store({
         Vue.set(product, 'count', 1) // product：传递过来“鱼香肉丝”
         state.cartData.push(product)
       }
-      localStorage.setItem('shopCart', JSON.stringify(state.cartData))
+      localStorage.setItem('shopCart', JSON.stringify(state.cartData)) // 更新本地存储的数据
     },
     // 减减
     delShopCart (state, product) {
       state.cartData.map((item) => {
         if (product.id === item.id && product.count > 1) {
           product.count--
-          localStorage.setItem('shopCart', JSON.stringify(state.cartData))
+          localStorage.setItem('shopCart', JSON.stringify(state.cartData))// 更新本地存储的数据
         }
       })
     },
@@ -54,6 +54,7 @@ const store = new Vuex.Store({
         if (product.id === item.id) {
           console.log(index)
           state.cartData.splice(index, 1)
+          localStorage.setItem('shopCart', JSON.stringify(state.cartData))// 更新本地存储的数据
         }
       })
     }
