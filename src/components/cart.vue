@@ -22,7 +22,7 @@
         <td>
           <div  class="btn btn-info" @click="addShopCartHandle(item)">+</div>
           <div  class="btn btn-warning" @click="delShopCartHandle(item)">-</div>
-          <div  class="btn btn-danger" title='删除'>x</div>
+          <div  class="btn btn-danger" title='删除' @click="reShopCartHandle(item)">x</div>
         </td>
       </tr>
       </tbody>
@@ -43,6 +43,9 @@ export default {
     },
     delShopCartHandle (product) {
       this.$store.commit('delShopCart', product)
+    },
+    reShopCartHandle (product) {
+      this.$store.commit('reShopCart', product)
     }
   }
 }

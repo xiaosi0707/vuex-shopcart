@@ -45,6 +45,15 @@ const store = new Vuex.Store({
           item.count--
         }
       })
+    },
+    // 删除
+    reShopCart (state, product) {
+      state.cartData.map((item, index) => {
+        if (product.id === item.id) {
+          console.log(index)
+          state.cartData.splice(index, 1)
+        }
+      })
     }
   }
 })
