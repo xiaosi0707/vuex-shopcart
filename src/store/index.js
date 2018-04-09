@@ -8,12 +8,19 @@ const store = new Vuex.Store({
     cartData: [] // 购物车数据状态
   },
   getters: {
-    totalCount (state) {
-      let total = 0
+    totalCount (state) { // 商品总数
+      let totalC = 0
       state.cartData.map((item) => {
-        total += item.count
+        totalC += item.count
       })
-      return total
+      return totalC
+    },
+    totalPrice (state) {
+      let totalP = 0
+      state.cartData.filter((item) => {
+        totalP += item.count * item.price
+      })
+      return totalP
     }
   },
   mutations: {

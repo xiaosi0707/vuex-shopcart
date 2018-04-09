@@ -2,7 +2,7 @@
   <div class="cart-info">
     <div>
       <div class='item'>总数：<strong>{{ goodsTotalCount }}</strong></div>
-      <div class='item'>总价：<strong>22</strong></div>
+      <div class='item'>总价：<strong>{{ goodsTotalPrice }}</strong></div>
       <div class="item pull-right btn btn-danger">清空购物车</div>
     </div>
   </div>
@@ -13,6 +13,9 @@ export default {
   computed: {
     goodsTotalCount () {
       return this.$store.getters.totalCount
+    },
+    goodsTotalPrice () {
+      return this.$store.getters.totalPrice
     }
   }
 }
