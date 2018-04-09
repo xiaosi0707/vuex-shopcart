@@ -8,8 +8,17 @@ const store = new Vuex.Store({
     cartData: []
   },
   mutations: {
+    // 加入购物车
     addShopCart (state, product) {
-      state.cartData.push(product)
+      let flag = true
+      state.cartData.map((item) => {
+        if (item.id === product.id) {
+          flag = false
+        }
+      })
+      if (flag) {
+        state.cartData.push(product)
+      }
     }
   }
 })

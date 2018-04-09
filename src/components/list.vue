@@ -52,6 +52,7 @@ export default {
     }
   },
   methods: {
+    // 加入购物车
     addShopCart (product) {
       this.$store.commit('addShopCart', product)
     }
