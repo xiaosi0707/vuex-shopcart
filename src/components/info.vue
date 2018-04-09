@@ -1,5 +1,8 @@
 <template>
   <div class="cart-info">
+    <div style="text-align: center; line-height: 56px" v-if="!goodsTotalCount">
+      购物车是空的
+    </div>
     <div>
       <div class='item'>总数：<strong>{{ goodsTotalCount }}</strong></div>
       <div class='item'>总价：<strong>{{ goodsTotalPrice }}</strong></div>

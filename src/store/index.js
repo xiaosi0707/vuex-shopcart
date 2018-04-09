@@ -15,12 +15,15 @@ const store = new Vuex.Store({
       })
       return totalC
     },
-    totalPrice (state) {
+    totalPrice (state) { // 商品总价
       let totalP = 0
       state.cartData.filter((item) => {
         totalP += item.count * item.price
       })
       return totalP
+    },
+    localData (state) {
+      localStorage.setItem('shopCart', JSON.stringify(state.cartData)) // 更新本地存储的数据
     }
   },
   mutations: {
@@ -37,14 +40,12 @@ const store = new Vuex.Store({
         Vue.set(product, 'count', 1) // product：传递过来“鱼香肉丝”
         state.cartData.push(product)
       }
-      localStorage.setItem('shopCart', JSON.stringify(state.cartData)) // 更新本地存储的数据
     },
     // 减减
     delShopCart (state, product) {
       state.cartData.map((item) => {
         if (product.id === item.id && product.count > 1) {
           product.count--
-          localStorage.setItem('shopCart', JSON.stringify(state.cartData))// 更新本地存储的数据
         }
       })
     },
@@ -53,14 +54,12 @@ const store = new Vuex.Store({
       state.cartData.map((item, index) => {
         if (product.id === item.id) {
           state.cartData.splice(index, 1)
-          localStorage.setItem('shopCart', JSON.stringify(state.cartData))// 更新本地存储的数据
         }
       })
     },
     // 清空购物车数据
     clearShopCart (state) {
       state.cartData = []
-      localStorage.setItem('shopCart', JSON.stringify(state.cartData))// 更新本地存储的数据
     }
   }
 })
