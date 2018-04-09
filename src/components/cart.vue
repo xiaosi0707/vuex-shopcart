@@ -20,7 +20,7 @@
         <td>{{ item.count }}</td>
         <td>¥{{ item.price * item.count }}</td>
         <td>
-          <div  class="btn btn-info">+</div>
+          <div  class="btn btn-info" @click="addShopCartHandle(item)">+</div>
           <div  class="btn btn-warning">-</div>
           <div  class="btn btn-danger" title='删除'>x</div>
         </td>
@@ -35,6 +35,11 @@ export default {
   computed: {
     cartDataList () {
       return this.$store.state.cartData
+    }
+  },
+  methods: {
+    addShopCartHandle (product) {
+      this.$store.commit('addShopCart', product)
     }
   }
 }
