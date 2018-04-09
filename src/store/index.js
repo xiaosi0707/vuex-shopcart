@@ -7,6 +7,15 @@ const store = new Vuex.Store({
   state: {
     cartData: [] // 购物车数据状态
   },
+  getters: {
+    totalCount (state) {
+      let total = 0
+      state.cartData.map((item) => {
+        total += item.count
+      })
+      return total
+    }
+  },
   mutations: {
     // 加入购物车
     addShopCart (state, product) {
