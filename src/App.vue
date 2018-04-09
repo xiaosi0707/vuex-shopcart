@@ -2,15 +2,18 @@
   <div id="app">
     <p class="shop-cart-title">购物车</p>
     <shop-list></shop-list>
+    <shop-cart></shop-cart>
   </div>
 </template>
 
 <script>
 import shopList from './components/list'
+import shopCart from './components/cart'
 export default {
   name: 'App',
   components: {
-    shopList
+    shopList,
+    shopCart
   }
 }
 </script>
