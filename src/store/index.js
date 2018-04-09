@@ -37,6 +37,14 @@ const store = new Vuex.Store({
         Vue.set(product, 'count', 1) // product：传递过来“鱼香肉丝”
         state.cartData.push(product)
       }
+    },
+    // 减减
+    delShopCart (state, product) {
+      state.cartData.map((item) => {
+        if (product.id === item.id && item.count > 1) {
+          item.count--
+        }
+      })
     }
   }
 })
