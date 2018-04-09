@@ -18,8 +18,8 @@
         <td>{{ item.price }}</td>
         <td>{{ item.count }}</td>
         <td>
-          <div class="btn btn-info" @click="addShopCart(item)">加入购物车</div>
-          <!--<div class="btn btn-warning">-</div>-->
+          <div class="btn btn-info" @click="addShopCartHandle(item)">{{ item.count ? '+':'加入购物车'}}</div>
+          <div class="btn btn-warning" @click="delShopCartHandle(item)" v-if="item.count">-</div>
         </td>
       </tr>
 
@@ -58,8 +58,11 @@ export default {
   },
   methods: {
     // 加入购物车
-    addShopCart (product) {
+    addShopCartHandle (product) {
       this.$store.commit('addShopCart', product)
+    },
+    delShopCartHandle (product) {
+      this.$store.commit('delShopCart', product)
     }
   }
 }
