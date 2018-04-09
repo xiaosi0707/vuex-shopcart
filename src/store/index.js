@@ -5,7 +5,8 @@ Vue.use(Vuex)
 
 const store = new Vuex.Store({
   state: {
-    cartData: []
+    cartData: [],
+    goodsCount: 1
   },
   mutations: {
     // 加入购物车
@@ -13,10 +14,12 @@ const store = new Vuex.Store({
       let flag = true
       state.cartData.map((item) => {
         if (item.id === product.id) {
+          product.count++
           flag = false
         }
       })
       if (flag) {
+        Vue.set(product, 'count', 1)
         state.cartData.push(product)
       }
     }

@@ -16,7 +16,7 @@
         <td>{{ item.id }}</td>
         <td>{{ item.name }}</td>
         <td>{{ item.price }}</td>
-        <td>1</td>
+        <td>{{ item.count }}</td>
         <td>
           <div class="btn btn-info" @click="addShopCart(item)">加入购物车</div>
           <!--<div class="btn btn-warning">-</div>-->
@@ -49,6 +49,11 @@ export default {
         name: '米饭',
         price: 2
       }]
+    }
+  },
+  computed: {
+    goodsNum () {
+      return this.$store.state.goodsCount
     }
   },
   methods: {

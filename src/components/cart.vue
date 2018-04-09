@@ -17,8 +17,8 @@
         <td>{{ item.id }}</td>
         <td>{{ item.name }}</td>
         <td>{{ item.price }}</td>
-        <td>1</td>
-        <td>¥{{ item.price * 2 }}</td>
+        <td>{{ item.count }}</td>
+        <td>¥{{ item.price * item.count }}</td>
         <td>
           <div  class="btn btn-info">+</div>
           <div  class="btn btn-warning">-</div>
@@ -35,6 +35,9 @@ export default {
   computed: {
     cartDataList () {
       return this.$store.state.cartData
+    },
+    goodsNum () {
+      return this.$store.state.goodsCount
     }
   }
 }
