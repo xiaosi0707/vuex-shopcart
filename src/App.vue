@@ -22,5 +22,6 @@ export default {
   .shop-cart-title {
     text-align: center;
     font-size: 24px;
+    line-height: 56px;
   }
 </style>
