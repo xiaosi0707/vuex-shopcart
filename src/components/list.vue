@@ -18,7 +18,7 @@
         <td>{{ item.price }}</td>
         <td>1</td>
         <td>
-          <div class="btn btn-info">加入购物车</div>
+          <div class="btn btn-info" >加入购物车</div>
           <!--<div class="btn btn-warning">-</div>-->
         </td>
       </tr>
